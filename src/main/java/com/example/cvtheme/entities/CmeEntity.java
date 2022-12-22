@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "cmes")
 public class CmeEntity extends User {
     @OneToMany(mappedBy = "cme")
     private List<CommentEntity> comments;

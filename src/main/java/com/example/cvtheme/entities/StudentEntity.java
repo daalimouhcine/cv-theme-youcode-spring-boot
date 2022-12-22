@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "students")
 public class StudentEntity extends User {
     @Column
     private StudentStatus status;

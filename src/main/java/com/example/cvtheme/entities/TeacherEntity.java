@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "teachers")
 public class TeacherEntity extends User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "promoId", referencedColumnName = "id")

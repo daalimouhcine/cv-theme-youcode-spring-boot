@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "promos")
 public class PromoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "comments")
 public class CommentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,5 +29,7 @@ public class CommentEntity {
     private DocumentType documentType;
     @Column
     private Timestamp date;
+    @OneToOne(mappedBy = "comment")
+    private NotificationEntity notification;
     
 }
