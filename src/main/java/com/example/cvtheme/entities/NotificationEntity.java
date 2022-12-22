@@ -6,10 +6,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "notifications")
 public class NotificationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
+    @JoinColumn(name = "commentId")
+    private CommentEntity comment;
+    @Column
+    private boolean isSeen = false;
 }
