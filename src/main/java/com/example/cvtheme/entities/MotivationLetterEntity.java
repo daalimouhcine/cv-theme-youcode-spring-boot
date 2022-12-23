@@ -13,7 +13,7 @@ public class MotivationLetterEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(nullable = false)
     private String letter;
     @ManyToOne
     @JoinColumn(name = "studentId", nullable = false)

@@ -13,11 +13,11 @@ public class PromoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(nullable = false, unique = true)
     private String name;
-    @Column
+    @Column(nullable = false)
     private String year;
-    @Column
+    @Column(nullable = false)
     private String major;
     @OneToOne(mappedBy = "promo")
     private TeacherEntity teacher;

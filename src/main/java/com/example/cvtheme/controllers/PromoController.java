@@ -8,21 +8,29 @@ import com.example.cvtheme.shared.dto.PromoDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RestController("api/promo/")
+import java.util.List;
+
+@RestController
+@RequestMapping("api/promo")
 public class PromoController {
     @Autowired
     PromoService promoService;
+
+    @GetMapping
+    private PromoResponse getPromos() {
+        List<PromoDto> promoList = promoService.getPromos();
+    }
 
     @PostMapping
     private PromoResponse createPromo(@RequestBody PromoRequest promoRequest) {
         PromoDto promoDto = new PromoDto();
         BeanUtils.copyProperties(promoRequest, promoDto);
-        PromoDto createPromo = promoService.createPromo(promoDto);
-        return null;
+        PromoDto createPromo = promoService.createPromo (promoDto);
+        PromoResponse promoResponse = new PromoResponse();
+        BeanUtils.copyProperties(createPromo, promoResponse);
+        return promoResponse;
     }
+
 }

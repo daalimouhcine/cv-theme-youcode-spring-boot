@@ -12,7 +12,7 @@ public class NotificationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
-    @JoinColumn(name = "commentId")
+    @JoinColumn(name = "commentId", nullable = false)
     private CommentEntity comment;
     @Column
     private boolean isSeen = false;

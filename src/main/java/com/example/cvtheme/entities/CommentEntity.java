@@ -18,16 +18,16 @@ public class CommentEntity {
     @JoinColumn(name = "cmeId", nullable = false)
     private CmeEntity cme;
     @ManyToOne
-    @JoinColumn(name = "resumeId")
+    @JoinColumn(name = "resumeId", nullable = false)
     private ResumeEntity resume;
     @ManyToOne
-    @JoinColumn(name = "letterId")
+    @JoinColumn(name = "letterId", nullable = false)
     private MotivationLetterEntity motivationLetter;
-    @Column
+    @Column(nullable = false)
     private String message;
-    @Column
+    @Column(nullable = false)
     private DocumentType documentType;
-    @Column
+    @Column(nullable = false)
     private Timestamp date;
     @OneToOne(mappedBy = "comment")
     private NotificationEntity notification;

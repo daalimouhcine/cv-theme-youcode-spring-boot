@@ -11,10 +11,10 @@ import java.util.List;
 @Setter
 @Entity(name = "students")
 public class StudentEntity extends User {
-    @Column
+    @Column(nullable = false)
     private StudentStatus status;
     @ManyToOne
-    @JoinColumn(name = "promoId")
+    @JoinColumn(name = "promoId", nullable = false)
     private PromoEntity promo;
     @OneToMany(mappedBy = "student")
     private List<ResumeEntity> resumes;

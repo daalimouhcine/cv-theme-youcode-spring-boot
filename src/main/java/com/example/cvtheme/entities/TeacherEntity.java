@@ -9,6 +9,6 @@ import lombok.Setter;
 @Entity(name = "teachers")
 public class TeacherEntity extends User {
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "promoId", referencedColumnName = "id")
+    @JoinColumn(name = "promoId", referencedColumnName = "id", nullable = false)
     private PromoEntity promo;
 }
