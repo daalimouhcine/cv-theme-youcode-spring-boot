@@ -13,7 +13,7 @@ public class ResumeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(nullable = false)
     private String cvName;
     @ManyToOne
     @JoinColumn(name = "studentId", nullable = false)
