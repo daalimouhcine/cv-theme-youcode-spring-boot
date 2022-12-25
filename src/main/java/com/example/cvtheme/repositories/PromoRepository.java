@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PromoRepository extends CrudRepository<PromoEntity, Long> {
+    PromoEntity findByReferenceName(String referenceName);
 
 }
