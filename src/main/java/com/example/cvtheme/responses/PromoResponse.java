@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PromoResponse {
-    private String referenceName;
+    private String promoReferenceName;
     private String name;
     private String year;
     private String major;
