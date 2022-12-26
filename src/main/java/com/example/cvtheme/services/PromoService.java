@@ -8,6 +8,6 @@ import java.util.List;
 public interface PromoService {
     PromoDto createPromo(PromoDto promo);
     List<PromoDto> getPromos();
-    PromoDto getByReferenceName(String name);
-    void deletePromo(String referenceName);
+    PromoDto getByPromoReferenceName(String promoReferenceName);
+    void deletePromo(String promoReferenceName);
 }

@@ -18,6 +18,9 @@ public class PromoServiceImp implements PromoService {
 
     @Override
     public PromoDto createPromo(PromoDto promo) {
+        String promoReferenceName = promo.getName().replace(" ", "_").toLowerCase(); // create the referenceName
+        promo.setPromoReferenceName(promoReferenceName);
+        promo.setMajor(promo.getMajor().toUpperCase()); // set the major to uppercase
         PromoEntity promoEntity = new PromoEntity();
         BeanUtils.copyProperties(promo, promoEntity);
         PromoEntity newPromo = promoRepository.save(promoEntity);
@@ -38,16 +41,16 @@ public class PromoServiceImp implements PromoService {
     }
 
     @Override
-    public PromoDto getByReferenceName(String referenceName) {
-        PromoEntity promoEntity = promoRepository.findByReferenceName(referenceName);
+    public PromoDto getByPromoReferenceName(String promoReferenceName) {
+        PromoEntity promoEntity = promoRepository.findByPromoReferenceName(promoReferenceName);
         PromoDto promoDto = new PromoDto();
         BeanUtils.copyProperties(promoEntity, promoDto);
         return promoDto;
     }
 
     @Override
-    public void deletePromo(String referenceName) {
-        PromoEntity promoEntity = promoRepository.findByReferenceName(referenceName);
+    public void deletePromo(String promoReferenceName) {
+        PromoEntity promoEntity = promoRepository.findByPromoReferenceName(promoReferenceName);
         if(promoEntity == null) throw new RuntimeException("Promo not found");
         promoRepository.delete(promoEntity);
     }
