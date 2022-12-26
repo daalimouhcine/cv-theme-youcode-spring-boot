@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class PromoDto {
     private Long id;
-    private String referenceName;
+    private String promoReferenceName;
     private String name;
     private String year;
     private String major;
