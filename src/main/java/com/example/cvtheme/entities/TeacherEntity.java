@@ -8,6 +8,8 @@ import lombok.Setter;
 @Setter
 @Entity(name = "teachers")
 public class TeacherEntity extends User {
+    @Column(nullable = false, unique = true)
+    private String teacherReferenceName;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "promoId", referencedColumnName = "id", nullable = false)
     private PromoEntity promo;

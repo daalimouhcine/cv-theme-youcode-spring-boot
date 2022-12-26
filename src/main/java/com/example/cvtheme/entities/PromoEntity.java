@@ -14,7 +14,7 @@ public class PromoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
-    private String referenceName;
+    private String promoReferenceName;
     @Column(nullable = false, unique = true)
     private String name;
     @Column(nullable = false)

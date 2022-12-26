@@ -12,6 +12,8 @@ import java.util.List;
 @Setter
 @Entity(name = "cmes")
 public class CmeEntity extends User {
+    @Column(nullable = false, unique = true)
+    private String cmeReferenceName;
     @Column(nullable = false)
     @OneToMany(mappedBy = "cme")
     private List<CommentEntity> comments;
