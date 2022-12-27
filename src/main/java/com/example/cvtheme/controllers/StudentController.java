@@ -1,6 +1,7 @@
 package com.example.cvtheme.controllers;
 
 import com.example.cvtheme.requests.StudentRequest;
+import com.example.cvtheme.responses.PromoResponse;
 import com.example.cvtheme.responses.StudentResponse;
 import com.example.cvtheme.services.StudentService;
 import com.example.cvtheme.shared.dto.StudentDto;
@@ -11,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/student")
 @CrossOrigin(origins = "*")
 public class StudentController {
     @Autowired
@@ -32,7 +33,9 @@ public class StudentController {
         BeanUtils.copyProperties(createStudent, studentResponse);
         studentResponse.setStatus(createStudent.getStatus().name());
 //        studentResponse.setPromo(createStudent.getPromo());
-        BeanUtils.copyProperties(createStudent.getPromo(), studentResponse.getPromo());
+        PromoResponse promoResponse = new PromoResponse();
+        BeanUtils.copyProperties(createStudent.getPromo(), promoResponse);
+        studentResponse.setPromo(promoResponse);
         return new ResponseEntity<StudentResponse>(studentResponse, HttpStatus.CREATED);
     }
 }
