@@ -31,9 +31,9 @@ public class PromoServiceImp implements PromoService {
 
     @Override
     public List<PromoDto> getAllPromos() {
-        List<PromoEntity> promoList =(List<PromoEntity>) promoRepository.findAll();
+        List<PromoEntity> promoEntityList =(List<PromoEntity>) promoRepository.findAll();
         List<PromoDto> promoDtoList = new ArrayList<PromoDto>();
-        for(PromoEntity promoEntity: promoList) {
+        for(PromoEntity promoEntity: promoEntityList) {
             promoDtoList.add(new PromoDto());
             BeanUtils.copyProperties(promoEntity, promoDtoList.get(promoDtoList.size()-1));
         }
