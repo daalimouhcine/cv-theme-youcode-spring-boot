@@ -22,7 +22,7 @@ public class PromoController {
 
     @GetMapping("/all")
     private ResponseEntity<List<PromoResponse>> getPromos() {
-        List<PromoDto> promoDtoList = promoService.getPromos();
+        List<PromoDto> promoDtoList = promoService.getAllPromos();
         List<PromoResponse> promoResponses = new ArrayList<PromoResponse>();
         for(PromoDto promoDto: promoDtoList) {
             promoResponses.add(new PromoResponse());

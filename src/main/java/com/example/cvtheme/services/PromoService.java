@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PromoService {
     PromoDto createPromo(PromoDto promo);
-    List<PromoDto> getPromos();
+    List<PromoDto> getAllPromos();
     PromoDto getByPromoReferenceName(String promoReferenceName);
     void deletePromo(String promoReferenceName);
 }

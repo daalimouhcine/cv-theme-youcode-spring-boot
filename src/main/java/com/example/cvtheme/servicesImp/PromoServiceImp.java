@@ -30,7 +30,7 @@ public class PromoServiceImp implements PromoService {
     }
 
     @Override
-    public List<PromoDto> getPromos() {
+    public List<PromoDto> getAllPromos() {
         List<PromoEntity> promoList =(List<PromoEntity>) promoRepository.findAll();
         List<PromoDto> promoDtoList = new ArrayList<PromoDto>();
         for(PromoEntity promoEntity: promoList) {
