@@ -38,6 +38,5 @@ public class StudentServiceImp implements StudentService {
         StudentDto studentDto = new StudentDto();
         BeanUtils.copyProperties(newStudent, studentDto);
         return studentDto;
-
     }
 }
